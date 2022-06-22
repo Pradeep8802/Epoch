@@ -1,0 +1,27 @@
+#EMPTY SPACES CHECKING IN THE DATASET:
+
+import pandas as pd
+def empty_spaces(x):
+    l=len(x)
+    c=0
+    e=0
+    for i in range(l):
+        if(len(x[i])==1599):
+            c=c+1
+        else :
+            e=e+1
+    if(c==17):
+        return 0
+    else:
+        return e  
+
+dataset=pd.read_csv("data.csv")
+a=dataset.iloc[:,:17].values    
+x=[]
+for i in range(17):
+    v=[] 
+    for j in range(0,1599):
+        v.append(a[j][i])
+    x.append(v)
+es=empty_spaces(x)
+print(es)
